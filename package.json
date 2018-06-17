@@ -1,0 +1,32 @@
+{
+  "name": "demo-app-server",
+  "version": "1.0.0",
+  "description": "server app for emaily",
+  "main": "index.js",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/manojd929/demo-app-server.git"
+  },
+  "keywords": [
+    "node",
+    "react",
+    "redux",
+    "full-stack"
+  ],
+  "author": "manojd929",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manojd929/demo-app-server/issues"
+  },
+  "homepage": "https://github.com/manojd929/demo-app-server#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
