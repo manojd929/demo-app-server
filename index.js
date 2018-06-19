@@ -9,7 +9,7 @@ const keys = require('./config/keys');
 require("./models/User");
 require("./services/passport");
 
-mongoose.connect(keys.mongoURI, { user: keys.DB_USERNAME, pass: keys.DB_PASSWORD }); 
+mongoose.connect(keys.mongoURI, { user: keys.dbUser, pass: keys.dbPassword }); 
 
 const app = express();
 
