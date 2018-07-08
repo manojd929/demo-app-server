@@ -8,6 +8,7 @@ const keys = require('./config/keys');
 
 // order for require statement is important here!!!
 require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI, { user: keys.dbUser, pass: keys.dbPassword }); 
@@ -29,6 +30,7 @@ app.use(passport.session());
 
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 // Make sure express behaves correctly in production
 if (process.env.NODE_ENV === 'production') {
