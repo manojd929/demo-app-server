@@ -36,7 +36,7 @@ module.exports = app => {
     }
   });
 
-  app.get('api/surveys', requireLogin, (req, res) => {
-
+  app.get('api/surveys/thanks', requireLogin, (req, res) => {
+    res.send('Thanks so much for voting!');
   });
 };
