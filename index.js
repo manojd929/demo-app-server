@@ -33,7 +33,7 @@ require("./routes/billingRoutes")(app);
 // Make sure express behaves correctly in production
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
-  // Like out main.js file or main.css file
+  // Like our main.js file or main.css file
   app.use(express.static('client/build'));
 
   // Express will serve up index.html frile
