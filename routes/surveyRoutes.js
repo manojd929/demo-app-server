@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const Path = require('path-parser');
+const Path = require('path-parser').default;
 // url is integrated module inside nodejs system
 const { URL } = require('url');
 
@@ -54,9 +54,10 @@ module.exports = app => {
 
   app.post('/api/surveys/webhooks', (req, res) => {
     console.log(req.body);
+    const parserObj = new Path('/api/surveys/:surveyId/:choice');
+
     _.chain(req.body)
       .map(({ email, url }) => {
-        const parserObj = new Path('/api/surveys/:surveyId/:choice');
         const pathname = new URL(url).pathname;
 
         const match = parserObj.test(pathname);
@@ -64,8 +65,8 @@ module.exports = app => {
           return { email, ...match };
         }
       })
-      .compact(events)
-      .uniqBy(compactEvents, 'email', 'surveyId')
+      .compact()
+      .uniqBy('email', 'surveyId')
       .each(({ surveyId, email, choice }) => {
         Survey.updateOne({
           _id: surveyId,
@@ -80,8 +81,7 @@ module.exports = app => {
       })
       .value();
 
-    // we do not have to respond to sendGrid anything 
-
+    res.send();
     /* const events = _.map(req.body, ({ email, url }) => {
       const parserObj = new Path('/api/surveys/:surveyId/:choice');
       const pathname = new URL(url).pathname;
