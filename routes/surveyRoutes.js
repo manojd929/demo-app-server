@@ -53,6 +53,7 @@ module.exports = app => {
   });
 
   app.post('/api/surveys/webhooks', (req, res) => {
+    console.log(req.body);
     _.chain(req.body)
       .map(({ email, url }) => {
         const parserObj = new Path('/api/surveys/:surveyId/:choice');

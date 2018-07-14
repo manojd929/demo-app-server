@@ -13,7 +13,7 @@
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "webhook": "lt -p 5000 webhookhelper-mano-emaily-929"
+    "webhook": "forever sendgrid_webhook.js"
   },
   "repository": {
     "type": "git",
@@ -45,5 +45,8 @@
     "path-parser": "^4.2.0",
     "sendgrid": "^5.2.3",
     "stripe": "^6.2.1"
+  },
+  "devDependencies": {
+    "forever": "^0.15.3"
   }
 }
